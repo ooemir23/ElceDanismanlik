@@ -16,10 +16,11 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <script>if(localStorage.getItem("theme")==="light")document.body.classList.add("light-mode");</script>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header">
@@ -34,6 +35,10 @@
         <a href="iletisim.html">İletişim</a>
       </nav>
       <div class="header-cta">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Tema Değiştir">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; display: none;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4" stroke-linecap="round"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px; display: block;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
         <a href="iletisim.html" class="btn btn-primary">İletişime Geç</a>
         <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -61,35 +66,35 @@
             </a>
             <a href="hizmetler.html" class="btn btn-ghost">Hizmetleri İncele</a>
           </div>
-          <div class="hero-stats reveal d4">
-            <div>
-              <div class="num"><span data-count="15" data-suffix="+">15+</span></div>
-              <div class="lbl">Yıllık Deneyim</div>
-            </div>
-            <div>
-              <div class="num"><span data-count="500" data-suffix="+">500+</span></div>
-              <div class="lbl">Tamamlanan Proje</div>
-            </div>
-            <div>
-              <div class="num"><span data-count="98" data-suffix="%">98%</span></div>
-              <div class="lbl">Memnuniyet Oranı</div>
-            </div>
-          </div>
+
         </div>
 
-        <aside class="hero-card reveal d2">
-          <div class="quote-mark">“</div>
-          <blockquote>
-            Doğru yatırım, fırsatı görmek değil; riski ölçerek sürdürülebilir kazanç yaratmaktır.
-          </blockquote>
-          <div class="quote-author">ELCE Danışmanlık</div>
-          <div class="quote-role">Yatırım Rehberliği İlkesi</div>
-          <ul class="hero-card-list">
-            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Veri odaklı yatırım analizi</li>
-            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Başından sonuna süreç yönetimi</li>
-            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Kişiye özel strateji</li>
-          </ul>
-        </aside>
+        <div class="analyzer-card reveal d2">
+          <h3>Yatırım Profil Analizcisi</h3>
+          <div class="analyzer-steps">
+            <div>
+              <div class="analyzer-q-title">1. Risk Tercihiniz Nedir?</div>
+              <div class="analyzer-options">
+                <button type="button" class="analyzer-btn" data-risk="low">Düşük</button>
+                <button type="button" class="analyzer-btn" data-risk="medium">Orta</button>
+                <button type="button" class="analyzer-btn" data-risk="high">Yüksek</button>
+              </div>
+            </div>
+            
+            <div>
+              <div class="analyzer-q-title">2. Öncelikli Yatırım Hedefiniz?</div>
+              <div class="analyzer-options">
+                <button type="button" class="analyzer-btn" data-target="protection">Koruma</button>
+                <button type="button" class="analyzer-btn" data-target="growth">Büyüme</button>
+                <button type="button" class="analyzer-btn" data-target="income">Gelir</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="analyzer-result" id="analyzer-result">
+            <!-- Results will be dynamically injected by JS -->
+          </div>
+        </div>
       </div>
       <div class="scroll-cue">
         <div class="mouse"></div>
@@ -97,31 +102,6 @@
       </div>
     </section>
 
-    <!-- ============ TRUST BAR ============ -->
-    <section class="trust-bar">
-      <div class="container">
-        <p class="first">Veriye ve güvene dayalı danışmanlık anlayışı.</p>
-        <div class="trust-items">
-          <div class="item reveal">
-            <div class="num"><span data-count="3" data-suffix="+">3+</span></div>
-            <div class="lbl">Uzman Hizmet Alanı</div>
-          </div>
-          <div class="item reveal d1">
-            <div class="num"><span data-count="100" data-suffix="%">100%</span>
-            </div>
-            <div class="lbl">Kişiye Özel Strateji</div>
-          </div>
-          <div class="item reveal d2">
-            <div class="num"><span data-count="24" data-suffix="/7">24/7</span></div>
-            <div class="lbl">Süreç Takip Desteği</div>
-          </div>
-          <div class="item reveal d3">
-            <div class="num"><span data-count="2" data-suffix="+">2+</span></div>
-            <div class="lbl">Bölgesel Uzmanlık</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ============ SERVICES ============ -->
     <section class="section" id="hizmetler">
@@ -136,287 +116,151 @@
         </div>
 
         <div class="cards-grid">
-          <article class="service-card reveal">
+          <a href="hizmet-detay.html?id=yatirim" class="service-card reveal">
             <span class="index">01</span>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18" stroke-linecap="round"/><path d="m7 14 3-3 3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3>Finansal Danışmanlık</h3>
             <p>Yatırım kararlarınız için analiz ve strateji desteği sunarak sürdürülebilir ve kârlı planlar oluşturuyoruz.</p>
-            <a href="hizmetler.html" class="more">Detaylar
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+          </a>
 
-          <article class="service-card reveal d1">
+          <a href="hizmet-detay.html?id=degerleme" class="service-card reveal d1">
             <span class="index">02</span>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" stroke-linejoin="round"/><path d="M9 21v-7h6v7" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3>Gayrimenkul Danışmanlığı</h3>
             <p>Doğru lokasyon ve doğru değerleme hizmeti ile gayrimenkul yatırımlarınızı güvenle şekillendiriyorsunuz.</p>
-            <a href="hizmetler.html" class="more">Detaylar
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+          </a>
 
-          <article class="service-card reveal d2">
+          <a href="hizmet-detay.html?id=fizibilite" class="service-card reveal d2">
             <span class="index">03</span>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9" stroke-linecap="round"/><circle cx="12" cy="12" r="3"/></svg>
             </div>
             <h3>Yatırım Analizi</h3>
             <p>Risk ve getiri odaklı değerlendirme ile sadece fırsatı değil, olası riskleri de net biçimde ortaya koyuyoruz.</p>
-            <a href="hizmetler.html" class="more">Detaylar
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+          </a>
 
-          <article class="service-card reveal">
+          <a href="hizmet-detay.html?id=aracilik" class="service-card reveal">
             <span class="index">04</span>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18M3 12h18M3 17h18" stroke-linecap="round"/><circle cx="7" cy="7" r="1.2" fill="currentColor"/><circle cx="14" cy="12" r="1.2" fill="currentColor"/><circle cx="9" cy="17" r="1.2" fill="currentColor"/></svg>
             </div>
-            <h3>Ticari Faaliyet Danışmanlığı</h3>
+            <h3>Ticari Faalık Danışmanlığı</h3>
             <p>Yurt içi ve yurt dışı ticari faaliyetlerinizde doğru planlama ve süreç yönetimi desteği sağlıyoruz.</p>
-            <a href="hizmetler.html" class="more">Detaylar
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+          </a>
 
-          <article class="service-card reveal d1">
+          <a href="hizmet-detay.html?id=proje" class="service-card reveal d1">
             <span class="index">05</span>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v6c0 5 9 9 9 9s9-4 9-9V7z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h3>Süreç Yönetimi</h3>
             <p>Başlangıçtan sonuca kadar tüm danışmanlık sürecini sizin için profesyonelce yönetiyoruz.</p>
-            <a href="hizmetler.html" class="more">Detaylar
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </article>
+          </a>
 
-          <article class="service-card reveal d2">
+          <a href="hizmet-detay.html?id=portfoy" class="service-card reveal d2">
             <span class="index">06</span>
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
             </div>
             <h3>Portföy Yönetimi</h3>
             <p>Varlıklarınızı bir bütün olarak değerlendirip dengeli risk ve maksimum getiri odaklı portföy oluşturuyoruz.</p>
-            <a href="hizmetler.html" class="more">Detaylar
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+          </a>
+
+          <a href="hizmet-detay.html?id=zeytinyagi" class="service-card reveal">
+            <span class="index">07</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 1.2 4 .2 8.5A7 7 0 0 1 11 20z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.8 6.1C11.5 8 13.5 11 15 15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Zeytinyağı Üretimi & Ticareti</h3>
+            <p>Güre'deki kendi bahçelerimizin mahsulü olan zeytinlerden soğuk sıkım yöntemiyle ürettiğimiz premium zeytinyağlarının ticari süreçlerini yönetiyoruz.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CORE HIGHLIGHTS ============ -->
+    <section class="section bg-soft" id="one-cikanlar">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow center">Neden ELCE?</span>
+          <h2>Yatırımlarınızda Değer Yaratan Yaklaşım</h2>
+        </div>
+        <div class="cards-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18" stroke-linecap="round"/><path d="m18.7 8-5.1 5.2-2.8-2.7L7 14.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Doğru Analiz & Risk Yönetimi</h3>
+            <p>Yatırım kararlarınızda sadece fırsatları değil, olası riskleri de veri odaklı analizlerle ölçüyor, sürdürülebilir kazanç hedefleri kurguluyoruz.</p>
+          </article>
+          
+          <article class="service-card reveal d1">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7h-9M14 10V4M3 17h9M6 20v-6M12 12h8" stroke-linecap="round"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Ticari Operasyon Yönetimi</h3>
+            <p>Yurt içi ve yurt dışı ticari tedarik, operasyon ve planlama süreçlerini uçtan uca profesyonel olarak yönetiyor ve işinizi büyütüyoruz.</p>
+          </article>
+          
+          <article class="service-card reveal d2">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m12 6-2 4h4l-2 4h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Uzun Vadeli Sürdürülebilirlik</h3>
+            <p>Günübirlik kazançlar yerine, portföyünüzü ve yatırımlarınızı geleceğe taşıyacak uzun vadeli ve dengeli büyüme stratejileri sunuyoruz.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ SPLIT: Ticari Faaliyetler ============ -->
-    <section class="section bg-soft">
-      <div class="container">
-        <div class="split">
-          <div class="split-media reveal">
-            <div class="visual">
-              <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="g1" x1="0" y1="0" x2="400" y2="300"><stop stop-color="#1e355c"/><stop offset="1" stop-color="#0a1628"/></linearGradient>
-                  <linearGradient id="g1gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0c98f"/><stop offset="1" stop-color="#b8945a"/></linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#g1)"/>
-                <circle cx="320" cy="70" r="90" fill="rgba(201,168,106,0.10)"/>
-                <path d="M40 220 L110 170 L180 200 L250 120 L320 150 L360 100" stroke="url(#g1gold)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="110" cy="170" r="5" fill="#e0c98f"/><circle cx="250" cy="120" r="5" fill="#e0c98f"/><circle cx="360" cy="100" r="5" fill="#e0c98f"/>
-                <rect x="40" y="240" width="320" height="30" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(201,168,106,0.2)"/>
-                <rect x="40" y="240" width="210" height="30" rx="6" fill="rgba(201,168,106,0.18)"/>
-              </svg>
-            </div>
-            <div class="badge">
-              <div class="b-num">%32</div>
-              <div class="b-txt">Ortalama süreç verimliliği artışı sağlanan ticari projelerde.</div>
-            </div>
-          </div>
-          <div class="split-content">
-            <span class="eyebrow reveal">Ticari Faaliyetler</span>
-            <h2 class="reveal d1" style="margin-top:1rem">Ticari Faaliyetlerinizi Güvenle Yönetin</h2>
-            <p class="lead reveal d2" style="margin-top:1.2rem">
-              Yurt içi ve yurt dışı ticari süreçlerinizde doğru planlama, tedarik ve operasyon
-              yönetimi için profesyonel destek sunuyoruz. İşinizi güvenle büyütün.
-            </p>
-            <ul class="feature-list reveal d3">
-              <li>
-                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h4>Doğru Planlama</h4><p>Tedarik ve operasyon süreçlerini en baştan kurguluyoruz.</p></div>
-              </li>
-              <li>
-                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h4>Yurt İçi & Yurt Dışı</h4><p>Sınır tanımayan ticari faaliyetler için güvenilir yönlendirme.</p></div>
-              </li>
-            </ul>
-            <div class="reveal d4" style="margin-top:2rem">
-              <a href="iletisim.html" class="btn btn-primary">Danışmanlık Al
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SPLIT: Doğru Analiz ============ -->
-    <section class="section">
-      <div class="container">
-        <div class="split reverse">
-          <div class="split-media reveal">
-            <div class="visual">
-              <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="g2" x1="0" y1="0" x2="400" y2="300"><stop stop-color="#16294a"/><stop offset="1" stop-color="#0a1628"/></linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#g2)"/>
-                <g stroke="rgba(201,168,106,0.15)" stroke-width="1">
-                  <path d="M60 40v220M140 40v220M220 40v220M300 40v220"/>
-                  <path d="M40 80h320M40 150h320M40 220h320"/>
-                </g>
-                <path d="M40 230 L120 180 L200 200 L280 110 L360 70" stroke="url(#g1gold)" stroke-width="2.5" fill="none"/>
-                <path d="M40 230 L120 180 L200 200 L280 110 L360 70 L360 260 L40 260 Z" fill="rgba(201,168,106,0.12)"/>
-                <circle cx="200" cy="200" r="14" fill="none" stroke="#e0c98f" stroke-width="2"/>
-                <circle cx="200" cy="200" r="4" fill="#e0c98f"/>
-              </svg>
-            </div>
-            <div class="badge">
-              <div class="b-num">7/24</div>
-              <div class="b-txt">Veri odaklı analiz ile risk ve getiri dengesini sürekli izliyoruz.</div>
-            </div>
-          </div>
-          <div class="split-content">
-            <span class="eyebrow reveal">Doğru Yatırım İçin Doğru Analiz</span>
-            <h2 class="reveal d1" style="margin-top:1rem">Yatırım Kararlarında Riski De Ölçeriz</h2>
-            <p class="lead reveal d2" style="margin-top:1.2rem">
-              Yatırım kararlarında sadece fırsatı değil, riskleri de değerlendiriyoruz.
-              Finansal ve gayrimenkul yatırımlarınız için veri odaklı analiz ve stratejik planlama sunuyoruz.
-            </p>
-            <ul class="feature-list reveal d3">
-              <li>
-                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h4>Risk Analizi</h4><p>Her fırsat için olası riskleri önceden belirler ve ölçeriz.</p></div>
-              </li>
-              <li>
-                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h4>Getiri Planlaması</h4><p>Gerçekçi getiri senaryoları ile sürdürülebilir kazanç hedefleriz.</p></div>
-              </li>
-            </ul>
-            <div class="reveal d4" style="margin-top:2rem">
-              <a href="hizmetler.html" class="btn btn-ghost">Hizmetleri İncele</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROCESS ============ -->
+    <!-- ============ PROCESS & CTA ============ -->
     <section class="section bg-card">
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow center">Çalışma Sürecimiz</span>
           <h2>Baştan Sonra Şeffaf Bir Süreç</h2>
-          <p class="lead" style="margin-inline:auto">
-            Her projeyi aynı disiplinli yöntemle ele alır, sürdürülebilir değer üretiriz.
-          </p>
         </div>
         <div class="process-grid process">
           <div class="process-step reveal">
             <div class="step-num">AŞAMA 01</div>
             <h4>İhtiyaç Analizi</h4>
-            <p>Hedeflerinizi ve beklentilerinizi dinleyerek doğru başlangıcı belirleriz.</p>
+            <p>Hedeflerinizi dinleyerek doğru başlangıcı belirleriz.</p>
           </div>
           <div class="process-step reveal d1">
             <div class="step-num">AŞAMA 02</div>
             <h4>Fizibilite</h4>
-            <p>Veri odaklı analizlerle projenin kârlılığını ve sürdürülebilirliğini ölçeriz.</p>
+            <p>Veri odaklı analizlerle kârlılığı ölçeriz.</p>
           </div>
           <div class="process-step reveal d2">
             <div class="step-num">AŞAMA 03</div>
             <h4>Planlama</h4>
-            <p>Risk ve getiri dengesi gözetilerek kişiye özel strateji oluştururuz.</p>
+            <p>Risk-getiri dengesiyle strateji oluştururuz.</p>
           </div>
           <div class="process-step reveal d3">
             <div class="step-num">AŞAMA 04</div>
             <h4>Uygulama</h4>
-            <p>Süreci baştan sona profesyonelce yönetir ve sonuçları birlikte değerlendiririz.</p>
+            <p>Süreci yönetir, sonuçları birlikte değerlendiririz.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ SPLIT: Uzun Vadeli Değer ============ -->
-    <section class="section">
-      <div class="container">
-        <div class="split">
-          <div class="split-media reveal">
-            <div class="visual">
-              <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="g3" x1="0" y1="0" x2="400" y2="300"><stop stop-color="#1e355c"/><stop offset="1" stop-color="#0a1628"/></linearGradient>
-                </defs>
-                <rect width="400" height="300" fill="url(#g3)"/>
-                <circle cx="200" cy="150" r="95" fill="none" stroke="rgba(201,168,106,0.25)" stroke-width="1.5"/>
-                <circle cx="200" cy="150" r="60" fill="none" stroke="rgba(201,168,106,0.4)" stroke-width="1.5"/>
-                <circle cx="200" cy="150" r="28" fill="rgba(201,168,106,0.18)" stroke="#e0c98f" stroke-width="2"/>
-                <path d="M200 55 v30 M200 215 v30 M105 150 h30 M265 150 h30" stroke="#e0c98f" stroke-width="1.5" stroke-linecap="round"/>
-                <text x="200" y="156" text-anchor="middle" fill="#e0c98f" font-family="serif" font-size="20" font-weight="600">ELCE</text>
-              </svg>
-            </div>
-            <div class="badge">
-              <div class="b-num">∞</div>
-              <div class="b-txt">Sürdürülebilir kazanç odaklı uzun vadeli yaklaşım.</div>
-            </div>
-          </div>
-          <div class="split-content">
-            <span class="eyebrow reveal">Uzun Vadeli Değer</span>
-            <h2 class="reveal d1" style="margin-top:1rem">Amacımız Sürdürülebilir Kazançtır</h2>
-            <p class="lead reveal d2" style="margin-top:1.2rem">
-              Amacımız yalnızca alım-satım değil, sürdürülebilir kazançtır.
-              Her müşterimiz için özel yatırım stratejisi oluşturur ve süreci baştan sona yönetiriz.
-            </p>
-            <ul class="feature-list reveal d3">
-              <li>
-                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h4>Kişiye Özel Strateji</h4><p>Her yatırımcıya özgü hedeflere göre çözüm üretiriz.</p></div>
-              </li>
-              <li>
-                <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h4>Süreç Takibi</h4><p>Kararın alındığı andan sonuçlanana kadar yanınızdayız.</p></div>
-              </li>
-            </ul>
-            <div class="reveal d4" style="margin-top:2rem">
-              <a href="iletisim.html" class="btn btn-primary">Danışmanlık Al
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CTA BAND ============ -->
-    <section class="section">
-      <div class="container">
-        <div class="cta-band reveal">
-          <span class="eyebrow center">İlk Adımı Birlikte Atalım</span>
-          <h2 style="margin-top:1rem">Yatırım Kararlarınızı Güvenle Şekillendirin</h2>
-          <p class="lead" style="margin-inline:auto">
-            Finansal, ticari ve gayrimenkul yatırımlarınızda doğru fırsatları belirliyor,
-            riskleri analiz ediyor ve süreci baştan sona profesyonel olarak yönetiyoruz.
+        
+        <div class="cta-band reveal" style="margin-top: 3.5rem; background: transparent; border: none; padding: 0;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--cream);">İlk Adımı Birlikte Atalım</h3>
+          <p style="margin-top: 0.5rem; margin-inline: auto; font-size: 0.95rem; max-width: 50ch;">
+            Yatırım kararlarınızı doğru risk analizi ve profesyonel süreç yönetimiyle şekillendirin.
           </p>
-          <div class="hero-actions">
+          <div class="hero-actions" style="justify-content: center; margin-top: 1.5rem;">
             <a href="iletisim.html" class="btn btn-primary">İletişime Geç
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="hizmetler.html" class="btn btn-ghost">Hizmetler</a>
+            <a href="hizmetler.html" class="btn btn-ghost">Hizmetleri İncele</a>
           </div>
         </div>
       </div>
-    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -453,10 +297,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" stroke-linejoin="round" opacity=".0"/><path d="M22 6 12 13 2 6" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
               info@elcedanismanlik.com
             </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              +90 xxx xxx xx xx
-            </li>
+
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" stroke-linejoin="round"/><circle cx="12" cy="10" r="3"/></svg>
               Türkiye

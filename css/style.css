@@ -1063,7 +1063,8 @@ p { color: var(--text-dim); }
   .main-nav a { width: 100%; padding: 1rem 1.2rem; font-size: 1.05rem; }
   .main-nav a::after { display: none; }
   .nav-toggle { display: flex; }
-  .header-cta .btn-ghost { display: none; }
+  .header-cta .btn { display: none; }
+  .brand-logo { height: 50px; }
   .hero-actions { width: 100%; }
   .hero-actions .btn { flex: 1; }
   .footer-top { grid-template-columns: 1fr; }

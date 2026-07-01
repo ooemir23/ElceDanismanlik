@@ -742,6 +742,10 @@ p { color: var(--text-dim); }
   font-size: 0.95rem;
 }
 
+#service-process .process-step::before {
+  display: none;
+}
+
 /* ---------- Why us / values ---------- */
 .values-grid {
   display: grid;

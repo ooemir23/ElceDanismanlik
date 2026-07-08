@@ -129,7 +129,7 @@
       } else if (ref === "dengeli") {
         prefilledText = "Merhaba, Yatırım Profil Analizcisi sonucuma göre 'Dengeli Büyüme & Gayrimenkul Yatırımı' (Gayrimenkul Danışmanlığı & Yatırım Analizi) hizmetiniz hakkında detaylı bilgi ve teklif almak istiyorum.";
       } else if (ref === "yuksek_getiri") {
-        prefilledText = "Merhaba, Yatırım Profil Analizcisi sonucuma göre 'Yüksek Getiri & Ticari Girişimcilik' (Ticari Aracılık & Zeytinyağı Ticareti) hizmetiniz hakkında detaylı bilgi ve teklif almak istiyorum.";
+        prefilledText = "Merhaba, Yatırım Profil Analizcisi sonucuma göre 'Yüksek Getiri & Ticari Girişimcilik' (Ticari Aracılık & Tarım) hizmetiniz hakkında detaylı bilgi ve teklif almak istiyorum.";
       }
       if (prefilledText) {
         messageInput.value = prefilledText;
@@ -239,7 +239,7 @@
       refParam = "dengeli";
     } else {
       title = "Yüksek Getiri & Ticari Girişimcilik";
-      text = "Sizin için en uygun hizmetimiz Ticari Faaliyet Danışmanlığı ve Zeytinyağı Ticaretidir. Güre'deki zeytin üretimimiz gibi yüksek kârlılığa ve ihracat potansiyeline sahip reel sektör yatırımlarını yönetiyoruz.";
+      text = "Sizin için en uygun hizmetimiz Ticari Faaliyet Danışmanlığı ve Tarım Faaliyetleridir. Güre'deki zeytin üretimimiz gibi yüksek kârlılığa ve ihracat potansiyeline sahip reel sektör yatırımlarını yönetiyoruz.";
       refParam = "yuksek_getiri";
     }
     

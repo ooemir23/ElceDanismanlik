@@ -126,7 +126,7 @@ window.SERVICES_DATA = {
     ]
   },
   "zeytinyagi": {
-    "title": "Zeytinyağı Üretimi & Ticareti",
+    "title": "Tarım",
     "category": "Ticari Faaliyetler",
     "icon": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 1.2 4 .2 8.5A7 7 0 0 1 11 20z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.8 6.1C11.5 8 13.5 11 15 15" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
     "description": "Edremit Körfezi'nin Güre bölgesindeki kendi aile bahçelerimizden topladığımız zeytinleri, soğuk sıkım yöntemiyle işleyerek premium zeytinyağı segmentinde üretiyor, şişeliyor ve hem yurt içi hem yurt dışı pazarlarda satış ve ticari süreçlerini yönetiyoruz.",

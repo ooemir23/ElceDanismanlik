@@ -422,6 +422,11 @@
     const data = window.SERVICES_DATA[serviceId];
     
     document.title = `${data.title} — ELCE Danışmanlık`;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", data.description);
+    const canonicalLink = document.getElementById("canonical-link");
+    if (canonicalLink) canonicalLink.setAttribute("href", `https://elcedanismanlik.com/hizmet-detay.html?id=${serviceId}`);
+    
     serviceTitleEl.textContent = data.title;
     
     const categoryEl = document.getElementById("service-category");
